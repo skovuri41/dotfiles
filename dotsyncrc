@@ -17,57 +17,22 @@
 #
 [files]
 dotsyncrc
-#ack/ackrc
-#aptitude
-#bin:bin
-#ctags/ctags
-#cmus
 #curl/curlrc
 #git/gitconfig
 #git/gitignore
 #git/gitattributes
 #git/tigrc
 #git/gitk
-#gnupg
-#grc
 #input/editrc
-#input/inputrc
-#irssi
-#mercurial/hgrc
-#mercurial/hgignore
-#mutt
-#mutt/muttrc
-#mutt/offlineimaprc
+input/inputrc
 #python/pythonrc
 #python/pylintrc
 #rpm/rpmmacros
-#ruby/irbrc
-#ruby/pryrc
-#ruby/gemrc
-#ruby/railsrc
-#ruby/rdebugrc
-#ruby/aprc
-#ruby/caprc
-#screen/screenrc
-#shell/hushlogin
-#shell/urlview
-#ssh
-#subversion
-#task/task
-#task/taskrc
 tmux/tmux.conf
 #tmux/tmuxinator
-#vim/dotvim:.vim
-#vim/vimrc
-#vim/gvimrc
 #wget/wgetrc
-#zsh/fasdrc
-#zsh/dotzsh:.zsh
-#zsh/zlogin
-#zsh/zlogout
-#zsh/zprofile
-#zsh/zshenv
-#zsh/zshrc
+bash/bashrc
+bash/bash_logout
 [endfiles]
 
 ## hostname                     type=masterhost, ANY or NONE    files=dotfile:tolink,another:tolink
@@ -82,5 +47,6 @@ tmux/tmux.conf
 #host8.example.net               rsync=host2.example.com                                #rsync mirror, push from host2
 #host9.example.net               rsync=host2.example.com                                #rsync mirror, push from host2
 hanuman	git=ANY
+precise32 git=ANY
 [endhosts]
 
