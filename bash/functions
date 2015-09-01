@@ -244,3 +244,8 @@ function o() {
 function tre() {
 	tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
 }
+
+
+function install_lein(){
+        wget https://raw.github.com/technomancy/leiningen/stable/bin/lein -O $HOME/bin/lein && /bin/chmod a+x $HOME/bin/lein;
+}
