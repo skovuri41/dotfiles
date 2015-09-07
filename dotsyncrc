@@ -1,12 +1,3 @@
-#
-# dotsync : https://github.com/dotphiles/dotsync
-#
-# Config for dotsync
-#
-# Authors:
-#   Ben O'Hara <bohara@gmail.com>
-#
-
 # Location of your dotfiles in $HOME
 # DOTFILES=.dotfiles
 
@@ -17,22 +8,23 @@
 #
 [files]
 dotsyncrc
-#curl/curlrc
-#git/gitconfig
-#git/gitignore
-#git/gitattributes
-#git/tigrc
-#git/gitk
-#input/editrc
+curl/curlrc
+git/gitconfig
+git/gitignore
+git/gitattributes
 input/inputrc
-#python/pythonrc
-#python/pylintrc
-#rpm/rpmmacros
 tmux/tmux.conf
-#tmux/tmuxinator
-#wget/wgetrc
+wget/wgetrc
 bash/bashrc
+bash/bash_profile
 bash/bash_logout
+bash/exports
+bash/functions
+bash/logout
+bash/bash_aliases
+lein/lein:bin/lein
+emacs.d
+osx/brew.sh:brew.sh
 [endfiles]
 
 ## hostname                     type=masterhost, ANY or NONE    files=dotfile:tolink,another:tolink
