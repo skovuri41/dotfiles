@@ -24,7 +24,7 @@ bash/logout
 bash/bash_aliases
 lein/lein:bin/lein
 emacs.d
-osx/brew.sh:brew.sh
+osx/install-brew.sh:install-brew.sh
 [endfiles]
 
 ## hostname                     type=masterhost, ANY or NONE    files=dotfile:tolink,another:tolink
