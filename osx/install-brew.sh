@@ -1,7 +1,3 @@
-
-# This installs some of the common dependencies needed (or at least desired)
-# using Homebrew.
-
 # Check for Homebrew
 if test ! $(which brew)
 then
@@ -52,9 +48,20 @@ brew install tmux
 #java
 brew install Caskroom/cask/java
 
+# Useful OS X softwares.
+brew cask install bettertouchtool  # A tool for adding shortcuts to apps.
+# Use long press cmd button on any mac app to see shortcuts.
+brew cask install cheatsheet
+# Offline documentation browser
+brew cask install dash
+brew cask install google-chrome
+brew cask install iterm2
+brew cask install kindle  # Kindle reader for Mac.
+brew cask install quicksilver # Quicksilver is better than Spotlight.
+brew cask install zipeg  # A zip file reader for Mac.
+brew install ant  # For building android projects.
 # Install `wget` with IRI support.
 brew install wget --with-iri
-
 # Install more recent versions of some OS X tools.
 brew install homebrew/dupes/grep
 brew install homebrew/dupes/openssh
