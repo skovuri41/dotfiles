@@ -22,4 +22,3 @@ if [ -f ~/.bashrc ]; then
         . ~/.bashrc
 fi
 
-eval "$(tmuxifier init -)"

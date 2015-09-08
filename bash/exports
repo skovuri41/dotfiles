@@ -19,6 +19,8 @@ export MANPAGER='less -X';
 
 # Always enable colored `grep` output.
 export GREP_OPTIONS='--color=auto';
-
 export PATH="$HOME/.tmuxifier/bin:$PATH"
 export TMUXIFIER_LAYOUT_PATH="$HOME/.layouts"
+. "$HOME/z/z.sh"
+eval "$(tmuxifier init -)"
+
