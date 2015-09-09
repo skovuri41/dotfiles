@@ -103,15 +103,6 @@ function server() {
 	python -c $'import SimpleHTTPServer;\nmap = SimpleHTTPServer.SimpleHTTPRequestHandler.extensions_map;\nmap[""] = "text/plain";\nfor key, value in map.items():\n\tmap[key] = value + ";charset=UTF-8";\nSimpleHTTPServer.test();' "$port";
 }
 
-# Start a PHP server from a directory, optionally specifying the port
-# (Requires PHP 5.4.0+.)
-function phpserver() {
-	local port="${1:-4000}";
-	local ip=$(ipconfig getifaddr en1);
-	sleep 1 && open "http://${ip}:${port}/" &
-	php -S "${ip}:${port}";
-}
-
 # Compare original and gzipped file size
 function gz() {
 	local origsize=$(wc -c < "$1");
@@ -249,3 +240,20 @@ function tre() {
 function install_lein(){
         wget https://raw.github.com/technomancy/leiningen/stable/bin/lein -O $HOME/bin/lein && /bin/chmod a+x $HOME/bin/lein;
 }
+
+# OS detection
+function is_osx() {
+  [[ "$OSTYPE" =~ ^darwin ]] || return 1
+}
+function is_ubuntu() {
+  [[ "$(cat /etc/issue 2> /dev/null)" =~ Ubuntu ]] || return 1
+}
+function is_redhat() {
+  [[ -f "/etc/redhat-release" ]] || return 1
+}
+function get_os() {
+  for os in osx ubuntu redhat; do
+    is_$os; [[ $? == ${1:-0} ]] && echo $os
+  done
+}
+
