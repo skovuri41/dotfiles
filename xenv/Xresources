@@ -1,0 +1,14 @@
+XTerm*faceName: Inconsolatazi4
+XTerm*faceSize: 10
+XTerm*rightScrollBar:   true
+XTerm*saveLines:        10000
+XTerm*scrollBar:        true
+XTerm*termName: xterm-256color
+XTerm*toolBar:  off
+Xft*antialias:  true
+Xft*autohint:   true
+Xft.antialias:  true
+Xft.hinting:    1
+Xft.hintstyle:  hintfull
+Xft.lcdfilter:  lcddefault
+Xft.rgba:       rgb

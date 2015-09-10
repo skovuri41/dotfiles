@@ -26,6 +26,10 @@ brew update
 # Upgrade any already-installed formulae.
 brew upgrade --all
 
+brew tap caskroom/cask
+brew install brew-cask
+
+
 # Install GNU core utilities (those that come with OS X are outdated).
 # Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
 brew install coreutils
@@ -46,7 +50,8 @@ brew install bash-completion2
 brew install tmux
 
 #java
-brew install Caskroom/cask/java
+brew cask install java
+#brew install Caskroom/cask/java
 
 # Useful OS X softwares.
 brew cask install bettertouchtool  # A tool for adding shortcuts to apps.
@@ -65,6 +70,7 @@ brew install wget --with-iri
 # Install more recent versions of some OS X tools.
 brew install homebrew/dupes/grep
 brew install homebrew/dupes/openssh
+
 
 # Install font tools.
 brew tap bramstein/webfonttools
