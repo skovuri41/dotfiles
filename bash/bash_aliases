@@ -16,6 +16,12 @@ alias g="git"
 alias h="history"
 alias j="jobs"
 
+#emacs
+alias ec='emacsclient -nw -c -a ""'
+alias emacs='emacsclient -c -a ""'
+alias emacskill="emacsclient -e '(kill-emacs)'"
+
+
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
 	colorflag="--color"

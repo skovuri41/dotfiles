@@ -1,14 +1,21 @@
-XTerm*faceName: Inconsolatazi4
-XTerm*faceSize: 10
-XTerm*rightScrollBar:   true
-XTerm*saveLines:        10000
-XTerm*scrollBar:        true
-XTerm*termName: xterm-256color
-XTerm*toolBar:  off
-Xft*antialias:  true
-Xft*autohint:   true
-Xft.antialias:  true
-Xft.hinting:    1
-Xft.hintstyle:  hintfull
-Xft.lcdfilter:  lcddefault
-Xft.rgba:       rgb
+xft*antialias:true
+xft*autohint:true
+xterm*scrollBar:true
+xterm*toolBar:false
+!xterm*faceName:Inconsolatazi4
+xterm*faceName: DejaVu Sans Mono
+xterm*faceSize:10
+xterm*saveLines:10000
+xterm*termName: xterm-256color
+xft*hinting:1
+xft*hintstyle:hintfull
+xft*lcdfilter:lcdlegacy
+xft*rgba:rgb
+xterm*locale:true
+xterm*dynamicColors:true
+xterm*scrollKey:true
+xterm*scrollTtyOutput:false
+xterm*rightScrollBar:true
+xterm*jumpScroll:true
+xterm*multiScroll:true
+
