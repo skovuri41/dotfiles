@@ -108,7 +108,7 @@
   default = upstream
 [core]
   autocrlf = false
-  editor = vim
+  editor = ec
   excludesfile = ~/.gitignore
 [advice]
   statusHints = false
