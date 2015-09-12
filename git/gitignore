@@ -43,3 +43,4 @@ tramp
 .lein-plugins/
 .lein-failures
 .nrepl-port
+*.jar
