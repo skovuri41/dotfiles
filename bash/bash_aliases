@@ -15,7 +15,7 @@ alias p="cd ~/projects"
 alias g="git"
 alias h="history"
 alias j="jobs"
-
+alias projects="cd ~/Projects"
 #emacs
 alias ec='emacsclient -nw -c -a ""'
 alias emacs='emacsclient -c -a ""'
