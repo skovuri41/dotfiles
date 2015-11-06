@@ -29,7 +29,6 @@ brew upgrade --all
 brew tap caskroom/cask
 brew install brew-cask
 
-
 # Install GNU core utilities (those that come with OS X are outdated).
 # Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
 brew install coreutils
@@ -48,6 +47,7 @@ brew install bash
 brew tap homebrew/versions
 brew install bash-completion2
 brew install tmux
+brew install cask
 
 #java
 brew cask install java
@@ -117,5 +117,12 @@ brew install ssh-copy-id
 brew install tree
 brew install webkit2png
 
+# Install VM
+brew cask install vagrant
+brew cask install virtualbox
+brew cask install virtualbox-extension-pack
+brew cask install vagrant-manager
+
+brew install rlwrap
 # Remove outdated versions from the cellar.
 brew cleanup
