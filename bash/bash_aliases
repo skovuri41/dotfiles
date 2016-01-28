@@ -16,10 +16,6 @@ alias g="git"
 alias h="history"
 alias j="jobs"
 alias projects="cd ~/Projects"
-#emacs
-alias ec='emacsclient -nw -c -a ""'
-alias emacs='emacsclient -c -a ""'
-alias emacskill="emacsclient -e '(kill-emacs)'"
 
 
 # Detect which `ls` flavor is in use

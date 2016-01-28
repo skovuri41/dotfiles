@@ -1,11 +1,14 @@
-# Make vim the default editor.
-export EDITOR='ec';
-
 # Increase Bash history size. Allow 32³ entries; the default is 500.
 export HISTSIZE='32768';
 export HISTFILESIZE="${HISTSIZE}";
 # Omit duplicates and commands that begin with a space from history.
 export HISTCONTROL='ignoreboth';
+shopt -s histappend
+PROMPT_COMMAND='history -a'
+shopt -s cdspell
+export HISTCONTROL="ignoredups"
+export HISTIGNORE="&:ls:[bf]g:exit"
+shopt -s cmdhist
 
 # Prefer US English and use UTF-8.
 export LANG='en_US.UTF-8';
@@ -24,3 +27,18 @@ export TMUXIFIER_LAYOUT_PATH="$HOME/.layouts"
 . "$HOME/z/z.sh"
 eval "$(tmuxifier init -)"
 
+prepend_path() {
+  export PATH="$1:${PATH}"
+  }
+
+export TERM=xterm-256color
+export CLICOLOR=1
+export LSCOLORS=GxFxCxDxBxegedabagacad
+
+# editors
+export EDITOR=et # see ~/bin
+export ALTERNATE_EDITOR=vi
+
+
+# setup ~/bin
+prepend_path "${HOME}/bin"
