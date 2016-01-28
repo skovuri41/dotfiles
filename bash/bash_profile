@@ -22,14 +22,13 @@ if [ ! -d ~/.layouts ]; then
 	mkdir .layouts 
 fi
 
-if [ ! -d ~/.bin ]; then
-	mkdir .bin
+if [ ! -d ~/bin ]; then
+	mkdir ~/bin
 fi
 
 
 if [ -f ~/.bashrc ]; then
         . ~/.bashrc
 fi
-
 
 
