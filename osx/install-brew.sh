@@ -123,6 +123,8 @@ brew cask install virtualbox
 brew cask install virtualbox-extension-pack
 brew cask install vagrant-manager
 
+brew install hunspell
+
 brew install rlwrap
 # Remove outdated versions from the cellar.
 brew cleanup

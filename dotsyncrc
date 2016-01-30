@@ -23,8 +23,16 @@ bash/functions
 bash/logout
 bash/bash_aliases
 lein/lein:bin/lein
+lein/profiles.clj:.lein/profiles.clj
 emacs.d
 osx/install-brew.sh:install-brew.sh
+osx/amethyst
+z:z
+tmuxifier
+scripts/ec:bin/ec
+scripts/es:bin/es
+scripts/et:bin/et
+scripts/ed.el:bin/ed.el
 [endfiles]
 
 ## hostname                     type=masterhost, ANY or NONE    files=dotfile:tolink,another:tolink
