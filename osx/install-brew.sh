@@ -124,6 +124,10 @@ brew cask install virtualbox-extension-pack
 brew cask install vagrant-manager
 
 brew install hunspell
+brew install the_silver_searcher
+
+brew install --HEAD ctags
+
 
 brew install rlwrap
 # Remove outdated versions from the cellar.

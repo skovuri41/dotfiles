@@ -241,4 +241,50 @@ function install_lein(){
         wget https://raw.github.com/technomancy/leiningen/stable/bin/lein -O $HOME/bin/lein && /bin/chmod a+x $HOME/bin/lein;
 }
 
+function ediff() {
+    if [ -z "$2" ]
+    then
+        echo "USAGE: ediff <FILE 1> <FILE 2>"
+    else
+        # The --eval flag takes lisp code and evaluates it with EMACS
+        emacsclient -c --eval "(ediff-files \"$1\" \"$2\")"
+    fi
+}
 
+function findit {
+    START_PATH='.'
+    FILES="$*"
+
+    # If we have a phrase src/../nav.handlebars, then we want to look
+    # in the 'src' directory for the filename given:
+    if echo "$1" | grep '\.\.' >/dev/null
+    then
+        set $(echo "$1" | sed 's/\/*\.\.\/*/  /');
+    fi
+
+    # If the first option is a directory, then look in that path, otherwise,
+    # start searching from the current directory.
+    if [ -d "$1" -a -n "$2" ]
+    then
+        START_PATH=$1
+        shift
+        FILES="$*"
+    fi
+
+    # Ignore the classes and .git directories, as well as look for every
+    # file name given.
+    find $START_PATH \
+        -not \( -path '*classes*' -or -path '*node_modules*' -or -path '.git*' \) \
+        -and -iname $(perl -e 'print join " -o -iname ", @ARGV' $FILES)
+}
+
+
+function xtitle {
+    # Old Style? echo -n -e "\033]0;$*\007";;
+    case "$1" in
+        -t)     shift; echo "\e]1;$*\a";;
+        -w)     shift; echo "\e]2;$*\a";;
+        -b)     shift; echo "\e]0;$*\a";;
+         *)     echo "\e]0;$*\a";;
+    esac
+}

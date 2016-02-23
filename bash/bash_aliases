@@ -118,3 +118,7 @@ alias map="xargs -n1"
 alias reload="exec $SHELL -l"
 
 
+alias f='noglob findit'
+
+alias e='emacsclient -q -a emacs'
+
