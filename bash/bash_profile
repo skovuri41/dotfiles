@@ -26,9 +26,14 @@ if [ ! -d ~/bin ]; then
 	mkdir ~/bin
 fi
 
+if [ ! -d ~/.fonts ]; then
+	mkdir ~/.fonts
+fi
+
 
 if [ -f ~/.bashrc ]; then
         . ~/.bashrc
 fi
+
 
 
