@@ -97,7 +97,7 @@ then
 fi
 
 # Trim new lines and copy to clipboard
-alias c="tr -d '\n' | pbcopy"
+#alias c="tr -d '\n' | pbcopy"
 
 
 # URL-encode strings
@@ -118,7 +118,6 @@ alias map="xargs -n1"
 alias reload="exec $SHELL -l"
 
 
-alias f='noglob findit'
+#alias f='noglob findit'
 
-alias e='emacsclient -q -a emacs'
 

@@ -11,7 +11,7 @@ then
   then
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/linuxbrew/go/install)"
   fi
-  
+
 fi
 
 # Ask for the administrator password upfront.
@@ -127,7 +127,11 @@ brew install hunspell
 brew install the_silver_searcher
 
 brew install --HEAD ctags
+# mu4e
 
+brew install mu
+brew install python
+brew install offline-imap
 
 brew install rlwrap
 # Remove outdated versions from the cellar.

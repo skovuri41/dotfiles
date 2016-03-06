@@ -24,7 +24,7 @@ export MANPAGER='less -X';
 export GREP_OPTIONS='--color=auto';
 export PATH="$HOME/.tmuxifier/bin:$PATH"
 export TMUXIFIER_LAYOUT_PATH="$HOME/.layouts"
-. "$HOME/z/z.sh"
+#. "$HOME/z/z.sh"
 eval "$(tmuxifier init -)"
 
 prepend_path() {
@@ -39,6 +39,15 @@ export LSCOLORS=GxFxCxDxBxegedabagacad
 export EDITOR=et # see ~/bin
 export ALTERNATE_EDITOR=vi
 
-
 # setup ~/bin
 prepend_path "${HOME}/bin"
+
+fasd_cache="$HOME/.fasd-init-bash"
+if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
+  fasd --init posix-alias bash-hook bash-ccomp bash-ccomp-install >| "$fasd_cache"
+fi
+source "$fasd_cache"
+unset fasd_cache
+
+
+
