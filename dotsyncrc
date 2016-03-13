@@ -36,6 +36,9 @@ scripts/ed.el:bin/ed.el
 scripts/offlineimap.py:.offlineimap.py
 fasd:fasd
 fasd/fasd:bin/fasd
+slate/slate.js
+ag/agignore
+hammerspoon
 [endfiles]
 
 ## hostname                     type=masterhost, ANY or NONE    files=dotfile:tolink,another:tolink
