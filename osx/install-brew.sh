@@ -127,6 +127,11 @@ brew install hunspell
 brew install the_silver_searcher
 
 brew install --HEAD ctags
+
+# brew install gnupg
+brew install gpg2
+brew install pinentry-mac
+
 # mu4e
 
 brew install mu
