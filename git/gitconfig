@@ -128,3 +128,5 @@
 	email = surya46584@gmail.com
 [http]
 	sslverify = false
+[credential]
+	helper = osxkeychain

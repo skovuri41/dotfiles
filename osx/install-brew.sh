@@ -133,10 +133,11 @@ brew install gpg2
 brew install pinentry-mac
 
 # mu4e
-
 brew install mu
 brew install python
 brew install offline-imap
+
+brew install hh
 
 brew install rlwrap
 # Remove outdated versions from the cellar.

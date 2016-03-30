@@ -120,4 +120,5 @@ alias reload="exec $SHELL -l"
 
 #alias f='noglob findit'
 
+alias gpg="gpg2"
 

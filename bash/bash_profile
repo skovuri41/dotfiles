@@ -30,6 +30,9 @@ if [ ! -d ~/.fonts ]; then
 	mkdir ~/.fonts
 fi
 
+if [ ! -d ~/.config ]; then
+	mkdir ~/.config
+fi
 
 if [ -f ~/.bashrc ]; then
         . ~/.bashrc
