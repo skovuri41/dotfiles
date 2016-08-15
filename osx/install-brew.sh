@@ -46,7 +46,8 @@ brew install gnu-sed --with-default-names
 brew install bash
 brew tap homebrew/versions
 brew install bash-completion2
-brew install tmux
+brew tap homebrew/completions 
+brew inst all tmux
 brew install cask
 
 #java
@@ -139,6 +140,25 @@ brew install offline-imap
 
 brew install hh
 
+#Docker
+brew cask install dockertoolbox
+
+#fira code
+brew cask install font-fira-code
+
 brew install rlwrap
+
+
+#emacs mac port
+
+#$ brew tap railwaycat/emacsmacport
+#and then
+#$ brew install emacs-mac
+#if you using cask
+#brew cask install emacs-mac
+#To disable this tap, please:
+#$ brew untap railwaycat/emacsmacport
+
+
 # Remove outdated versions from the cellar.
 brew cleanup

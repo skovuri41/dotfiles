@@ -23,6 +23,7 @@ export MANPAGER='less -X';
 # Always enable colored `grep` output.
 export GREP_OPTIONS='--color=auto';
 export PATH="$HOME/.tmuxifier/bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
 export TMUXIFIER_LAYOUT_PATH="$HOME/.layouts"
 #. "$HOME/z/z.sh"
 eval "$(tmuxifier init -)"
@@ -71,3 +72,13 @@ if [[ $- =~ .*i.* ]]; then bind '"\C-r": "\C-a hh \C-j"'; fi
 
 [[ -s "$HOME/.qfc/bin/qfc.sh" ]] && source "$HOME/.qfc/bin/qfc.sh"
 [[ $- = *i* ]] && source "$HOME/.liquidprompt/liquidprompt"
+
+
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+. $(brew --prefix)/etc/bash_completion
+fi
+
+
+
+
+
