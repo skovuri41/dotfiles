@@ -117,6 +117,7 @@
   # instead of a/b/c/d as prefixes for patches
   mnemonicprefix = true
 	algorithm = patience
+	tool = opendiff
 [rerere]
   # Remember my merges
   # http://gitfu.wordpress.com/2008/04/20/git-rerere-rereremember-what-you-did-last-time/
@@ -128,3 +129,5 @@
 	email = surya46584@gmail.com
 [http]
 	sslverify = false
+[credential]
+	helper = osxkeychain

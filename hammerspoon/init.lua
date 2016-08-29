@@ -214,12 +214,31 @@ hs.hotkey.bind(hyper,"down", function() push(0,0.5,1,0.5) end)
 hs.hotkey.bind(hyper,"up", function()	push(0,0,1,0.5) end)
 
 -----------------------------------------------
+-----------------------------------------------
+-- mash c for center window
+-----------------------------------------------
+
+ hs.hotkey.bind(mash, "c", function()
+     local win = hs.window.focusedWindow()
+     local f = win:frame()
+     local screen = win:screen()
+     local max = screen:frame()
+
+     f.x = max.x + (max.w / 4)
+     f.y = max.y
+     f.w = max.w/2
+     f.h = max.h
+     win:setFrame(f)
+ end)
+
+-----------------------------------------------
 -- Reload config on write
 -----------------------------------------------
 
 function reload_config(files)
     hs.reload()
 end
+
 hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/", reload_config):start()
 hs.alert.show("Config loaded")
 

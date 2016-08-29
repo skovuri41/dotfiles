@@ -19,3 +19,9 @@
 [submodule "fasd"]
 	path = fasd
 	url = https://github.com/clvv/fasd.git
+[submodule "qfc"]
+	path = qfc
+	url = https://github.com/pindexis/qfc.git
+[submodule "liquidprompt"]
+	path = liquidprompt
+	url = https://github.com/nojhan/liquidprompt.git

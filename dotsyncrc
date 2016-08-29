@@ -39,6 +39,13 @@ fasd/fasd:bin/fasd
 slate/slate.js
 ag/agignore
 hammerspoon
+osx/org.gnupg.gpg-agent.plist:/Library/LaunchAgents/org.gnupg.gpg-agent.plist
+osx/startup-gpg-agent.sh:bin/startup-gpg-agent.sh
+osx/gpg-agent.conf:/.gnupg/gpg-agent.conf
+qfc
+liquidprompt
+prompt/liquidpromptrc:.config/liquidpromptrc
+
 [endfiles]
 
 ## hostname                     type=masterhost, ANY or NONE    files=dotfile:tolink,another:tolink
