@@ -147,7 +147,7 @@ brew cask install dockertoolbox
 brew cask install font-fira-code
 
 brew install rlwrap
-
+brew install trash
 
 #emacs mac port
 
