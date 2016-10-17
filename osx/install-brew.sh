@@ -159,6 +159,10 @@ brew install trash
 #To disable this tap, please:
 #$ brew untap railwaycat/emacsmacport
 
+brew install node
+
+# emacs pdf viewer
+brew install poppler
 
 # Remove outdated versions from the cellar.
 brew cleanup
