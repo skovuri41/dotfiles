@@ -243,7 +243,7 @@ hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/", reload_config):start()
 hs.alert.show("Config loaded")
 
 -----------------------------------------------
--- Hyper i to show window hints
+-- Hyper . to show window hints
 -----------------------------------------------
 
 hs.hotkey.bind(hyper, '.', function()
