@@ -45,6 +45,8 @@ osx/gpg-agent.conf:/.gnupg/gpg-agent.conf
 qfc
 liquidprompt
 prompt/liquidpromptrc:.config/liquidpromptrc
+kwm/kwmrc:.kwm/kwmrc
+kwm/khdrc:.khdrc
 
 [endfiles]
 
