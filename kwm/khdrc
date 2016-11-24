@@ -13,7 +13,6 @@ khd mode prefix restore default
 #khd mode prefix color 0xFFFFFF00
 khd mode prefix color 0xFF9021D2
 
-
 # Activate prefix mode
 ctrl - s                 :    khd -e "mode activate prefix"
 
@@ -30,7 +29,7 @@ cmd + ctrl - b           :    open -a /Applications/iBooks.app
 cmd + ctrl - g           :    open -a /Applications/Messages.app
 cmd + ctrl - w           :    open -a /Applications/WhatsApp.app
 cmd + ctrl - p           :    open -a /Applications/Photos.app
-
+cmd + ctrl - t           :    open -a /Applications/iTunes.app
 
 # Set Space Tiling Mode To BSP
 cmd + alt - a           :    kwmc space -t bsp
@@ -79,15 +78,18 @@ cmd + alt - j            :    kwmc window -f south
 cmd + alt - k            :    kwmc window -f north
 
 # Give Focus To Screen
-cmd + alt - 1            :    kwmc display -f 0
-cmd + alt - 2            :    kwmc display -f 1
-cmd + alt - 3            :    kwmc display -f 2
 cmd + alt - n            :    kwmc display -f 0
 cmd + alt - p            :    kwmc display -f 1
 
 # Give focus to Space
 cmd + alt - left         :    kwmc space -fExperimental left
 cmd + alt - right        :    kwmc space -fExperimental right
+cmd + alt - 1        :    kwmc space -fExperimental 1
+cmd + alt - 2        :    kwmc space -fExperimental 2
+cmd + alt - 3        :    kwmc space -fExperimental 3
+cmd + alt - 4        :    kwmc space -fExperimental 4
+cmd + alt - up        :    kwmc space -fExperimental right
+cmd + alt - down        :    kwmc space -fExperimental left
 
 # Swap Focused Window
 ctrl + alt - h           :    kwmc window -s west
@@ -114,11 +116,15 @@ ctrl + shift - x         :    kwmc window -m mark
 # Move Focused Window To Space
 ctrl + alt - left        :    kwmc window -m space left
 ctrl + alt - right       :    kwmc window -m space right
+ctrl + alt - 1       :    kwmc window -m space 1
+ctrl + alt - 2       :    kwmc window -m space 2
+ctrl + alt - 3       :    kwmc window -m space 3
+ctrl + alt - 4       :    kwmc window -m space 4
+ctrl + alt - 5       :    kwmc window -m space 5
+ctrl + alt - 6       :    kwmc window -m space 6
+
 
 # Move Focused Window To Screen
-ctrl + alt - 1           :    kwmc window -m display 0
-ctrl + alt - 2           :    kwmc window -m display 1
-ctrl + alt - 3           :    kwmc window -m display 2
 ctrl + alt - n           :    kwmc window -m display 0
 ctrl + alt - p           :    kwmc window -m display 1
 
