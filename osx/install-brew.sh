@@ -164,5 +164,8 @@ brew install node
 # emacs pdf viewer
 brew install poppler
 
+brew install koekeishiya/kwm/kwm
+brew install koekeishiya/khd/khd
+
 # Remove outdated versions from the cellar.
 brew cleanup

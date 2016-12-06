@@ -38,5 +38,7 @@ if [ -f ~/.bashrc ]; then
         . ~/.bashrc
 fi
 
-
+if [ ! -d ~/.kwm ]; then
+	mkdir ~/.kwm
+fi
 
