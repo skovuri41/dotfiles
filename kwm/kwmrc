@@ -135,6 +135,8 @@ if the screen exists.
 */
 
 kwmc rule owner="Emacs" properties={display="1"}
+kwmc rule owner="iTerm" properties={display="1"}
+
 
 # Enable border for focused window
 kwmc config border focused on
