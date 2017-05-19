@@ -134,8 +134,9 @@ if the screen exists.
    kwmc rule owner="iTunes" properties={display="1"}
 */
 
-kwmc rule owner="Emacs" properties={display="1"}
-kwmc rule owner="iTerm" properties={display="1"}
+kwmc rule owner="Emacs" properties={display="2"}
+kwmc rule owner="iTerm" properties={display="2"}
+kwmc rule owner="Google Chrome" properties={display="2"}
 
 
 # Enable border for focused window

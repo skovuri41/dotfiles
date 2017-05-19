@@ -167,5 +167,7 @@ brew install poppler
 brew install koekeishiya/kwm/kwm
 brew install koekeishiya/khd/khd
 
+brew install boot-clj
+
 # Remove outdated versions from the cellar.
 brew cleanup
