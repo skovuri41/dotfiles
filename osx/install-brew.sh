@@ -170,5 +170,8 @@ brew install koekeishiya/khd/khd
 brew install boot-clj
 brew install graphviz
 
+brew cask install hammerspoon
+brew cask install caffeine
+
 # Remove outdated versions from the cellar.
 brew cleanup

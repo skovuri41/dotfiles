@@ -25,3 +25,6 @@
 [submodule "liquidprompt"]
 	path = liquidprompt
 	url = https://github.com/nojhan/liquidprompt.git
+[submodule "hs-weather"]
+	path = hs-weather
+	url = https://github.com/skamsie/hs-weather.git

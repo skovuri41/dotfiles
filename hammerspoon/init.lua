@@ -4,10 +4,9 @@
 
 local hyper = {"shift", "cmd"}
 local mash = {"shift", "cmd","alt"}
-hs.window.animationDuration = 0
-
-require("hs.application")
+hs.window.animationDuration = require("hs.application")
 require("hs.window")
+
 
 -- Get list of screens and refresh that list whenever screens are plugged or unplugged:
 local screens = hs.screen.allScreens()
@@ -394,3 +393,25 @@ allwindows:subscribe(hs.window.filter.windowFocused, function () redrawBorder() 
 allwindows:subscribe(hs.window.filter.windowMoved, function () redrawBorder() end)
 allwindows:subscribe(hs.window.filter.windowUnfocused, function () redrawBorder() end)
 -----------------------
+hs.loadSpoon("MouseCircle")
+spoon.MouseCircle:bindHotkeys({show={mash, "m"}})
+
+-- Replace Caffeine.app with 18 lines of Lua :D
+hs.loadSpoon("Caffeine")
+spoon.Caffeine:bindHotkeys({toggle={mash, "n"}})
+spoon.Caffeine:start()
+
+-- Draw pretty rounded corners on all screens
+hs.loadSpoon("RoundedCorners")
+spoon.RoundedCorners:start()
+
+-- Yahoo Weather
+hs.fs.chdir('~/.hammerspoon')
+local weather = require("hs-weather")
+weather.start()
+
+-- Bind layouts
+local layouts = require "layouts"
+hs.hotkey.bind(hyper, ";", function()
+  hs.layout.apply(layouts.solo)
+end)
