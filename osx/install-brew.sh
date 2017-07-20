@@ -55,7 +55,6 @@ brew cask install java
 #brew install Caskroom/cask/java
 
 # Useful OS X softwares.
-brew cask install bettertouchtool  # A tool for adding shortcuts to apps.
 # Use long press cmd button on any mac app to see shortcuts.
 brew cask install cheatsheet
 # Offline documentation browser

@@ -7,7 +7,6 @@ local mash = {"shift", "cmd","alt"}
 hs.window.animationDuration = require("hs.application")
 require("hs.window")
 
-
 -- Get list of screens and refresh that list whenever screens are plugged or unplugged:
 local screens = hs.screen.allScreens()
 local screenwatcher = hs.screen.watcher.new(function()
@@ -396,10 +395,26 @@ allwindows:subscribe(hs.window.filter.windowUnfocused, function () redrawBorder(
 hs.loadSpoon("MouseCircle")
 spoon.MouseCircle:bindHotkeys({show={mash, "m"}})
 
--- Replace Caffeine.app with 18 lines of Lua :D
+-- ----
 hs.loadSpoon("Caffeine")
 spoon.Caffeine:bindHotkeys({toggle={mash, "n"}})
 spoon.Caffeine:start()
+
+-- Triggering system lock + screen saver
+hs.hotkey.bind(mash, "s",function()
+    hs.timer.doAfter(1, function()
+        hs.caffeinate.startScreensaver()
+    end)
+end)
+
+hs.hotkey.bind(mash, "l", function()
+  hs.caffeinate.lockScreen()
+end)
+
+-- Reloading the Hammerspoon conf. should be a breeze
+hs.hotkey.bind(mash, "r", function()
+  hs.reload()
+end)
 
 -- Draw pretty rounded corners on all screens
 hs.loadSpoon("RoundedCorners")
@@ -410,8 +425,45 @@ hs.fs.chdir('~/.hammerspoon')
 local weather = require("hs-weather")
 weather.start()
 
+-- Clipboard
+require("clipboard")
+
 -- Bind layouts
 local layouts = require "layouts"
 hs.hotkey.bind(hyper, ";", function()
   hs.layout.apply(layouts.solo)
 end)
+
+-- wifi event watcher
+wifiWatcher = nil
+homeSSID = "shikdhum"
+lastSSID = hs.wifi.currentNetwork()
+
+function ssidChangedCallback()
+    newSSID = hs.wifi.currentNetwork()
+
+    if newSSID == homeSSID and lastSSID ~= homeSSID then
+        -- We just joined our home WiFi network
+        hs.audiodevice.defaultOutputDevice():setVolume(25)
+    elseif newSSID ~= homeSSID and lastSSID == homeSSID then
+        -- We just departed our home WiFi network
+        hs.audiodevice.defaultOutputDevice():setVolume(0)
+    end
+
+   if lastSSID ~= newSSID then
+      hs.notify.new({
+        title = 'Wi-Fi Status',
+        subTitle = newSSID and 'Network:' or 'Disconnected',
+        informativeText = newSSID,
+       -- contentImage = m.cfg.icon,
+        autoWithdraw = true,
+        hasActionButton = false,
+      }):send()
+    end
+
+    lastSSID = newSSID
+end
+
+wifiWatcher = hs.wifi.watcher.new(ssidChangedCallback)
+wifiWatcher:start()
+--
