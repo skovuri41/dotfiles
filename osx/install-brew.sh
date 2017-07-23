@@ -170,7 +170,8 @@ brew install boot-clj
 brew install graphviz
 
 brew cask install hammerspoon
-brew cask install caffeine
+brew cask install eaffeine
 
+brew install ripgrep
 # Remove outdated versions from the cellar.
 brew cleanup

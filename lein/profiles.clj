@@ -7,4 +7,4 @@
                   [venantius/ultra "0.5.1"]
                   ]
         :repl-options {:init (set! *print-length* 100)}}
- :repl {:plugins [[cider/cider-nrepl "0.14.0"]]}}
+ :repl {:plugins [[cider/cider-nrepl "0.15.0-SNAPSHOT"]]}}
