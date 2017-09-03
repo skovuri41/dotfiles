@@ -391,6 +391,11 @@ allwindows:subscribe(hs.window.filter.windowCreated, function () redrawBorder() 
 allwindows:subscribe(hs.window.filter.windowFocused, function () redrawBorder() end)
 allwindows:subscribe(hs.window.filter.windowMoved, function () redrawBorder() end)
 allwindows:subscribe(hs.window.filter.windowUnfocused, function () redrawBorder() end)
+allwindows:subscribe(hs.window.filter.windowsChanged, function () redrawBorder() end)
+allwindows:subscribe(hs.window.filter.windowNotVisible, function () redrawBorder() end)
+
+
+
 -----------------------
 hs.loadSpoon("MouseCircle")
 spoon.MouseCircle:bindHotkeys({show={mash, "m"}})
