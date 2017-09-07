@@ -122,3 +122,5 @@ alias reload="exec $SHELL -l"
 
 alias gpg="gpg2"
 
+alias tmuxy='bash ~/tmux.sh'
+alias dotfiles="ls -a | grep '^\.' | grep --invert-match '\.DS_Store\|\.$'"
