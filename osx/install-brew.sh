@@ -118,10 +118,10 @@ brew install tree
 brew install webkit2png
 
 # Install VM
-brew cask install vagrant
-brew cask install virtualbox
-brew cask install virtualbox-extension-pack
-brew cask install vagrant-manager
+# brew cask install vagrant
+# brew cask install virtualbox
+# brew cask install virtualbox-extension-pack
+# brew cask install vagrant-manager
 
 brew install hunspell
 brew install the_silver_searcher
@@ -163,14 +163,18 @@ brew install node
 # emacs pdf viewer
 brew install poppler
 
-brew install koekeishiya/kwm/kwm
-brew install koekeishiya/khd/khd
+#brew install koekeishiya/kwm/kwm
+#brew install koekeishiya/khd/khd
 
 brew install boot-clj
 brew install graphviz
+brew install clojure
 
 brew cask install hammerspoon
-brew cask install eaffeine
+#brew cask install caffeine
+brew cask install keepassx
+brew cask install keeweb
+brew install candid82/brew/joker
 
 brew install ripgrep
 # Remove outdated versions from the cellar.

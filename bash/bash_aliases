@@ -126,3 +126,4 @@ alias tmuxy='bash ~/tmux.sh'
 alias dotfiles="ls -a | grep '^\.' | grep --invert-match '\.DS_Store\|\.$'"
 alias magit='emacsclient -n -e \(magit-status\)'
 
+alias brewery='brew update && brew upgrade && brew cleanup'
