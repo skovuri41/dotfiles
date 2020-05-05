@@ -4,27 +4,15 @@
 [submodule "emacs.d"]
 	path = emacs.d
         url = git@github.com:surya46584/emacs.d.git
-[submodule "tmuxifier"]
-	path = tmuxifier
-	url = https://github.com/jimeh/tmuxifier.git
 [submodule "z"]
 	path = z
 	url = https://github.com/rupa/z.git
 [submodule "git-extras"]
 	path = git-extras
 	url = https://github.com/tj/git-extras.git
-[submodule "iTerm2-Color-Schemes"]
-	path = iTerm2-Color-Schemes
-	url = https://github.com/mbadolato/iTerm2-Color-Schemes.git
 [submodule "fasd"]
 	path = fasd
 	url = https://github.com/clvv/fasd.git
-[submodule "qfc"]
-	path = qfc
-	url = https://github.com/pindexis/qfc.git
 [submodule "liquidprompt"]
 	path = liquidprompt
 	url = https://github.com/nojhan/liquidprompt.git
-[submodule "hs-weather"]
-	path = hs-weather
-	url = https://github.com/skamsie/hs-weather.git
