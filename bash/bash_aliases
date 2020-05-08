@@ -14,10 +14,11 @@ alias dt="cd ~/Desktop"
 alias p="cd ~/projects"
 alias g="git"
 alias h="history"
+alias hs="history|grep -i "
 alias j="jobs"
 alias projects="cd ~/Projects"
 alias dkl='docker ps -l -q'
-
+alias mkdir="mkdir -pv"
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
 	colorflag="--color"
@@ -93,7 +94,7 @@ then
   alias plistbuddy="/usr/libexec/PlistBuddy"
   # Recursively delete `.DS_Store` files
   alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
-
+  alias brewery='brew update && brew upgrade && brew cleanup'
 fi
 
 # Trim new lines and copy to clipboard
@@ -122,8 +123,41 @@ alias reload="exec $SHELL -l"
 
 alias gpg="gpg2"
 
-alias tmuxy='bash ~/tmux.sh'
 alias dotfiles="ls -a | grep '^\.' | grep --invert-match '\.DS_Store\|\.$'"
-alias magit='emacsclient -n -e \(magit-status\)'
+alias magit='emacsclient -c -e \(magit-status\)'
 
-alias brewery='brew update && brew upgrade && brew cleanup'
+
+# ADDS MY PATH WHEN SET AS ROOT
+if [ $(id -u) = "0" ]; then
+   export PATH=$PATH:/home/shyam/bin 
+fi
+
+alias sudo='sudo -E env "PATH=$PATH"'
+alias open=xdg-open
+
+alias ping='ping -c 5'
+alias www='python -m SimpleHTTPServer 8000'
+alias untar='tar -zxvf '
+
+# install with apt-get
+alias apt-get="sudo apt-get"
+alias updatey="sudo apt-get --yes"
+
+# update on one command
+alias update='sudo apt-get update && sudo apt-get upgrade'
+
+## pass options to free ##
+alias meminfo='free -m -l -t'
+
+## get top process eating memory
+alias psmem='ps auxf | sort -nr -k 4'
+alias psmem10='ps auxf | sort -nr -k 4 | head -10'
+
+## get top process eating cpu ##
+alias pscpu='ps auxf | sort -nr -k 3'
+alias pscpu10='ps auxf | sort -nr -k 3 | head -10'
+
+## Get server cpu info ##
+alias cpuinfo='lscpu'
+
+
