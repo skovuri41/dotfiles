@@ -18,10 +18,6 @@ shopt -s histappend;
 # Autocorrect typos in path names when using `cd`
 shopt -s cdspell
 
-if [ ! -d ~/.layouts ]; then
-	mkdir .layouts 
-fi
-
 if [ ! -d ~/bin ]; then
 	mkdir ~/bin
 fi
@@ -38,7 +34,4 @@ if [ -f ~/.bashrc ]; then
         . ~/.bashrc
 fi
 
-if [ ! -d ~/.kwm ]; then
-	mkdir ~/.kwm
-fi
 
