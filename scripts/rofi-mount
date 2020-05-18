@@ -1,0 +1,52 @@
+#!/bin/bash
+
+# A script the checks the additional mounts in /etc/fstab and outputs
+# whether they are currently mounted.
+#
+# Selecting those mounts will attempt to toggle the mount
+
+# Uses rofi to select the mounts
+
+
+function checkmount()
+{
+    if $(findmnt | grep $1 > /dev/null); then
+        echo "Mounted"
+    else
+        echo "Unmounted"
+    fi
+}
+
+output=$(cat /etc/fstab | grep -vx "^[#U].*"  | cut -d ' ' -f 3)
+for i in ${output[@]} ; do
+    if [ -z $count ] ; then
+        choices="$(checkmount $i) $i"
+        count=1
+    else
+        choices="$choices\n$(checkmount $i) $i"
+    fi
+done
+
+selection=$(echo -e "$choices" | rofi   -dmenu \
+                                        -i \
+                                        -hide-scrollbar true \
+                                        -p "Network Mounts")
+
+mounted=$(echo "$selection" | cut -d ' ' -f 1)
+selection=$(echo "$selection" | cut -d ' ' -f 2)
+
+if [[ "$mounted" == "Mounted" ]] ; then
+    if [[ "$selection" == *"google-drive"* ]] ; then
+        notify-send "don't try that :P"
+    else
+        umount "$selection"
+        notify-send "$selection has been unmounted"
+    fi
+elif [[ "$mounted" == "Unmounted" ]] ; then
+    if [[ "$selection" == *"google-drive"* ]] ; then
+        notify-send "don't try that :P"
+    else
+        mount "$selection"
+        notify-send "$selection has been mounted"
+    fi
+fi

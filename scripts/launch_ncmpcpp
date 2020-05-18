@@ -1,0 +1,14 @@
+#!/bin/bash
+
+if pgrep -x "ncmpcpp" > /dev/null
+then
+    echo "Running"
+    i3-msg "[title=\"NCMPCPP\"] scratchpad show; [title=\"NCMPCPP\"] move position center"
+else
+    echo "Stopped"
+    i3-msg "exec --no-startup-id xfce4-terminal --hide-menubar -T \"NCMPCPP\" -e \"ncmpcpp\""
+    sleep 1
+    i3-msg "[title=\"NCMPCPP\"] scratchpad show; [title=\"NCMPCPP\"] move position center"
+fi
+
+
