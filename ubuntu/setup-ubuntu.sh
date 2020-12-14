@@ -1,0 +1,83 @@
+#!/bin/bash
+
+export PROJECT_TEMP_PATH=$PWD/tmp
+
+# Flag this as a proper starting point
+export INSTALL_SCRIPT=true
+
+# Detect the Home path for root or a user
+if [[ $USER == 'root' ]]; then
+    export HOME_PATH="/root"          # (No Trailing Slash)
+else
+    export HOME_PATH="/home/$USER"    # (No Trailing Slash)
+fi
+
+# Update Ubuntu and get standard repository programs
+sudo apt update && sudo apt full-upgrade -y
+
+function install {
+  which $1 &> /dev/null
+
+  if [ $? -ne 0 ]; then
+    echo "Installing: ${1}..."
+    sudo apt install -y $1
+  else
+    echo "Already installed: ${1}"
+  fi
+}
+
+# Basics
+install curl
+install dialog
+install exfat-utils
+install file
+install git
+install git-extras
+install htop
+install nmap
+install openvpn
+install tree
+install vim
+install wget
+
+# Fun stuff
+install figlet
+install lolcat
+
+install i3xrocks-weather
+install i3xrocks-wifi
+install i3xrocks-temp
+install i3xrocks-time
+install xfce4-terminal
+install silversearcher-ag
+install ispell
+install x11-utils
+install xsel
+install feh
+install openssh-server
+
+install net-tools
+install hunspell
+install keepassxc
+
+install tmux
+install unzip
+install rlwrap
+install xclip
+
+echo "Installing Java"
+install openjdk-11-jdk
+# Notes after installation of jdk
+#sudo update-alternatives --config java
+#sudo update-alternatives --config javac
+
+
+# Run all scripts in programs/
+for f in programs/*.sh; do bash "$f" -H; done
+
+# Get all upgrades
+sudo apt upgrade -y
+sudo apt autoremove -y
+
+# Fun hello
+figlet "Setup Completed!" | lolcat

@@ -160,4 +160,9 @@ alias pscpu10='ps auxf | sort -nr -k 3 | head -10'
 ## Get server cpu info ##
 alias cpuinfo='lscpu'
 
+alias fix-wifi='sudo service network-manager restart && echo "Restarted network manager"'
+alias wifi-restart='sudo service network-manager restart && echo "Restarted network manager"'
+alias check-for-updates='sudo apt-get -u upgrade --assume-no'
+
+
 

@@ -25,30 +25,16 @@ bash/bash_aliases
 lein/lein:bin/lein
 lein/profiles.clj:.lein/profiles.clj
 emacs.d
-osx/install-brew.sh:install-brew.sh
-osx/amethyst
 z:z
 tmuxifier
-scripts/ec:bin/ec
-scripts/es:bin/es
-scripts/et:bin/et
-scripts/ed.el:bin/ed.el
-scripts/offlineimap.py:.offlineimap.py
 fasd:fasd
 fasd/fasd:bin/fasd
-slate/slate.js
 ag/agignore
 hammerspoon
-osx/org.gnupg.gpg-agent.plist:/Library/LaunchAgents/org.gnupg.gpg-agent.plist
-osx/startup-gpg-agent.sh:bin/startup-gpg-agent.sh
-osx/gpg-agent.conf:/.gnupg/gpg-agent.conf
 qfc
 liquidprompt
 prompt/liquidpromptrc:.config/liquidpromptrc
-# kwm/kwmrc:.kwm/kwmrc
-# kwm/khdrc:.khdrc
-hs-weather:.hammerspoon/hs-weather
-
+fonts
 [endfiles]
 
 ## hostname                     type=masterhost, ANY or NONE    files=dotfile:tolink,another:tolink
@@ -62,6 +48,5 @@ hs-weather:.hammerspoon/hs-weather
 #host7.example.net               rsync=host2.example.com                                #rsync mirror, push from host2
 #host8.example.net               rsync=host2.example.com                                #rsync mirror, push from host2
 #host9.example.net               rsync=host2.example.com                                #rsync mirror, push from host2
-hanuman	git=ANY
-precise32 git=ANY
+dhruva git=ANY
 [endhosts]
