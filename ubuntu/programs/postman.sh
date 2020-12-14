@@ -10,12 +10,13 @@ wget https://dl.pstmn.io/download/latest/linux64 -O $PROJECT_TEMP_PATH/postman.t
 cd $PROJECT_TEMP_PATH
 
 echo "(+) Moving Postman to /opt/Postman"
-sudo tar -xvf $PROJECT_TEMP_PATH/postman.tar.gz -C /opt
+sudo tar -xvf $PROJECT_TEMP_PATH/postman.tar.gz -C /usr/local/stow/postman
 rm $PROJECT_TEMP_PATH/postman.tar.gz
 
 if [ ! -s /usr/bin/postman ]; then
-  echo "(+) Symlink in /usr/bin/postman"
-  sudo ln -s /opt/Postman/Postman /usr/bin/postman
+    echo "(+) Symlink postman"
+    cd /usr/local/stow
+    stow postman
 fi
 
 echo "(+) Creating Desktop Entry $HOME_PATH/.local/share/applications/postman.desktop"

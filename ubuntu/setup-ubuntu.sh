@@ -28,6 +28,8 @@ function install {
 
 # Basics
 install curl
+install cifs-utils
+install build-essential
 install dialog
 install exfat-utils
 install file
@@ -39,6 +41,11 @@ install openvpn
 install tree
 install vim
 install wget
+install stow
+install JetBrainsMono
+install entr
+install bashtop
+install fonts-firacode
 
 # Fun stuff
 install figlet
@@ -64,6 +71,27 @@ install tmux
 install unzip
 install rlwrap
 install xclip
+install silversearcher-ag
+install ripgrep
+install mpc
+install mpc
+install ncmpcpp
+
+echo "(+) Creating Desktop Entry $HOME_PATH/.local/share/applications/mpd.desktop"
+
+cat > $HOME_PATH/.local/share/applications/mpd.desktop << EOF
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=Music Player Daemon
+Comment=Server for playing audio files
+Exec=mpd
+StartupNotify=false
+Terminal=false
+Hidden=false
+EOF
+
+sudo desktop-file-install $HOME_PATH/.local/share/applications/mpd.desktop
 
 echo "Installing Java"
 install openjdk-11-jdk
