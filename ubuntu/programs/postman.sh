@@ -9,14 +9,15 @@ echo "(+) Downloading Postman"
 wget https://dl.pstmn.io/download/latest/linux64 -O $PROJECT_TEMP_PATH/postman.tar.gz
 cd $PROJECT_TEMP_PATH
 
-echo "(+) Moving Postman to /opt/Postman"
+echo "(+) Moving Postman"
+sudo mkdir -p /usr/local/stow/postman
 sudo tar -xvf $PROJECT_TEMP_PATH/postman.tar.gz -C /usr/local/stow/postman
 rm $PROJECT_TEMP_PATH/postman.tar.gz
 
 if [ ! -s /usr/bin/postman ]; then
     echo "(+) Symlink postman"
     cd /usr/local/stow
-    stow postman
+    sudo stow postman
 fi
 
 echo "(+) Creating Desktop Entry $HOME_PATH/.local/share/applications/postman.desktop"

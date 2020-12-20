@@ -6,6 +6,8 @@ if [[ ! $INSTALL_SCRIPT ]]; then
 fi
 
 echo "(+) Downloading Greenclip"
-wget https://github.com/erebe/greenclip/releases/download/3.3/greenclip -o $PROJECT_TEMP_PATH/
+
 cd $PROJECT_TEMP_PATH
-stow greenclip
+mkdir greenclip
+wget https://github.com/erebe/greenclip/releases/download/3.3/greenclip -P greenclip/
+stow greenclip -t /usr/local/bin

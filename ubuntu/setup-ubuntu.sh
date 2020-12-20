@@ -42,8 +42,8 @@ install tree
 install vim
 install wget
 install stow
-install JetBrainsMono
 install entr
+sudo add-apt-repository ppa:bashtop-monitor/bashtop -y
 install bashtop
 install fonts-firacode
 

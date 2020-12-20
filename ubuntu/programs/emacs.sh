@@ -5,8 +5,16 @@ if [[ ! $INSTALL_SCRIPT ]]; then
     exit
 fi
 
+currentver="$(emacs --version)"
+requiredver="27.1"
+ if [ "$(printf '%s\n' "$requiredver" "$currentver" | sort -V | head -n1)" = "$requiredver" ]; then
+        echo "Emacs $requiredver Already Installed - Exiting"
+	exit 1
+ else
+        echo "Installing Emacs"
+ fi
+
 echo "(+) Downloading Emacs"
-wget https://gnu.askapache.com/emacs/emacs-27.1.tar.xz -O $PROJECT_TEMP_PATH/emacs-27.1.tar.xz
 
 echo "(+) Installing Emacs Dependencies"
 UTILS=(
@@ -27,24 +35,28 @@ UTILS=(
   libotf-dev
   libsystemd-dev
   libjansson-dev
+  libncurses-dev
 )
 for util in "${UTILS[@]}"; do
   sudo apt-get install $util -y
 done
 
-sudo -- -sh -c <<EOF
+echo "proj temp path: "
+echo $PROJECT_TEMP_PATH
 cd $PROJECT_TEMP_PATH
 tar -xf $PROJECT_TEMP_PATH/emacs-27.1.tar.xz
 rm emacs-27.1.tar.xz
 cd emacs-27.1
-./configure --disable-silent-rules \
+
+sudo -s <<'EOF'
+  ./configure --disable-silent-rules \
 --with-modules --with-file-notification=inotify --with-mailutils \
 --with-x=yes --with-x-toolkit=gtk3 --with-xwidgets --with-lcms2 \
 --with-imagemagick --with-json
-make
-make install prefix=/usr/local/stow/emacs
-cd /usr/local/stow
-stow emacs
+  make
+  make install prefix=/usr/local/stow/emacs
+  cd /usr/local/stow
+  stow emacs
 EOF
 
 
@@ -57,7 +69,7 @@ Name=Emacs
 Exec=emacs
 Type=Application
 Terminal=false
-Icon=/usr/local/emacs/share/applications/emacs.svg
+Icon=/usr/local/stow/emacs/share/icons/hicolor/scalable/apps/emacs.svg
 Categories=Development;
 EOF
 

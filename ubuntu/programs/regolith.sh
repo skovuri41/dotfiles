@@ -5,5 +5,5 @@ if [[ ! $INSTALL_SCRIPT ]]; then
     exit
 fi
 
-sudo add-apt-repository ppa:regolith-linux/release
+sudo add-apt-repository ppa:regolith-linux/release -y
 install regolith-desktop-standard
