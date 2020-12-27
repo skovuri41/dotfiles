@@ -46,6 +46,10 @@ install entr
 sudo add-apt-repository ppa:bashtop-monitor/bashtop -y
 install bashtop
 install fonts-firacode
+install sqllite3
+
+sudo add-apt-repository ppa:ultradvorka/ppa -y
+install hstr
 
 # Fun stuff
 install figlet
@@ -76,6 +80,8 @@ install ripgrep
 install mpc
 install mpc
 install ncmpcpp
+
+install vlc
 
 echo "(+) Creating Desktop Entry $HOME_PATH/.local/share/applications/mpd.desktop"
 

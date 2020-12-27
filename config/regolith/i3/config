@@ -535,7 +535,7 @@ bindsym $mod+Shift+v exec rofi -modi "clipboard:greenclip print" -show clipboard
 bindsym $mod+e exec /home/shyam/emacs-26.3/bin/emacsclient -create-frame --alternate-editor="/home/shyam/emacs-26.3/bin/emacs"
 
 # Greenclip
-exec --no-startup-id /home/shyam/bin/greenclip daemon>/dev/null
+exec --no-startup-id greenclip daemon>/dev/null
 
 #mpd
 exec_always --no-startup-id pulseaudio –-start
@@ -552,7 +552,7 @@ for_window [title="NCMPCPP"] resize set 1000 720
 #for_window [title="NCMPCPP"] move position center
 for_window [title="NCMPCPP"] move scratchpad
 for_window [title="NCMPCPP"] border pixel 1
-bindsym $mod+m exec --no-startup-id "/home/shyam/bin/launch_ncmpcpp"
+bindsym $mod+m exec --no-startup-id "~/bin/launch_ncmpcpp"
 
 #exec_always --no-startup-id xfce4-terminal --hide-menubar -T NCMPCPP -e ncmpcpp
 #exec_always --no-startup-id /home/shyam/bin/launch_ncmpcpp
@@ -562,6 +562,9 @@ bindsym $mod+m exec --no-startup-id "/home/shyam/bin/launch_ncmpcpp"
 for_window [class="KeePassXC"] floating enable
 for_window [class="KeePassXC"] resize set 1000 720 
 for_window [class="KeePassXC"] move scratchpad
+for_window [class="keepassxc"] floating enable
+for_window [class="keepassxc"] resize set 1000 720 
+for_window [class="keepassxc"] move scratchpad
 exec_always --no-startup-id keepassxc
 
 # Enable floating for emacs capture
@@ -572,8 +575,8 @@ mode "Emacs Capture Mode" {
         # These bindings trigger as soon as you enter the Emacs Capture mode
 
         ## Resize // Resize Window // k j h l ##
-        bindsym c exec /home/shyam/bin/emacs-capture --eval '(org-capture)'; mode "default"
-        bindsym a exec /home/shyam/bin/emacs-capture --eval '(org-agenda)';mode "default"
+        bindsym c exec ~/bin/emacs-capture --eval '(org-capture)'; mode "default"
+        bindsym a exec ~/bin/emacs-capture --eval '(org-agenda)';mode "default"
 
         ## Resize // Exit Resize Mode // Escape or Enter ## 
         bindsym Return mode "default"
@@ -584,7 +587,7 @@ bindsym $mod+c mode "Emacs Capture Mode"
 
 # github.com/karlicoss/grasp
 # browser based emacs capture
-exec_always --no-startup-id /home/shyam/bin/browser-capture
+exec_always --no-startup-id ~/bin/browser-capture
 
 ### System Control ###
 
