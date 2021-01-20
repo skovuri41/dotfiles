@@ -133,7 +133,7 @@ if [ $(id -u) = "0" ]; then
 fi
 
 alias sudo='sudo -E env "PATH=$PATH"'
-alias open=xdg-open
+alias open='xdg-open &>/dev/null'
 
 alias ping='ping -c 5'
 alias www='python -m SimpleHTTPServer 8000'
@@ -164,5 +164,16 @@ alias fix-wifi='sudo service network-manager restart && echo "Restarted network 
 alias wifi-restart='sudo service network-manager restart && echo "Restarted network manager"'
 alias check-for-updates='sudo apt-get -u upgrade --assume-no'
 
+alias ec="emacsclient -cnqua ''" # the void string '' is IMPORTANT
+#alias et="emacsclient -t"
+alias emax="emacsclient -t"
+alias semacs="sudo emacsclient -t"
+alias emacsc="emacsclient -c -a emacs"   
+
+
+alias fzfi='rg --files --hidden --follow --no-ignore-vcs -g "!{node_modules,.git}" 2> /dev/null|fzf'
+alias et='emacsclient -t $(fzfi)'
+
+alias cdtemp='cd $(mktemp -d)'
 
 

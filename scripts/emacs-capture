@@ -1,4 +1,4 @@
 #!/bin/sh
-/home/shyam/emacs-26.3/bin/emacsclient -c -F "(quote (name . \"emacs-capture\") (height . 20) (width . 80))" "$@"
+emacsclient -c -F "(quote (name . \"emacs-capture\") (height . 20) (width . 80))" "$@"
 
 #/home/shyam/emacs-26.3/bin/emacsclient -c -F "((name . \"emacs-capture\") (height . 20) (width . 80) (fullscreen . nil))" -e  "(org-capture nil \"i\")"

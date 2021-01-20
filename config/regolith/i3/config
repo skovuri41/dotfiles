@@ -504,7 +504,7 @@ bar {
 
 # Start the installed regolith-compositor
 set_from_resource $i3-wm.program.compositor i3-wm.program.compositor /usr/share/regolith-compositor/init
-#exec --no-startup-id $i3-wm.program.compositor
+exec --no-startup-id $i3-wm.program.compositor
 
 # Start Rofication for notifications
 set_from_resource $i3-wm.program.notifications i3-wm.program.notifications /usr/bin/rofication-daemon
@@ -532,7 +532,7 @@ exec --no-startup-id $i3-wm.program.3
 bindsym $mod+Shift+v exec rofi -modi "clipboard:greenclip print" -show clipboard
 
 #emacs binding
-bindsym $mod+e exec /home/shyam/emacs-26.3/bin/emacsclient -create-frame --alternate-editor="/home/shyam/emacs-26.3/bin/emacs"
+bindsym $mod+e exec emacsclient -create-frame --alternate-editor="emacs"
 
 # Greenclip
 exec --no-startup-id greenclip daemon>/dev/null
@@ -569,7 +569,7 @@ exec_always --no-startup-id keepassxc
 
 # Enable floating for emacs capture
 for_window [instance="emacs-capture"] floating enable
-#bindsym $mod+c exec /home/shyam/bin/emacs-capture --eval '(org-capture)'
+#bindsym $mod+c exec ~/bin/emacs-capture --eval '(org-capture)'
 
 mode "Emacs Capture Mode" {
         # These bindings trigger as soon as you enter the Emacs Capture mode
@@ -584,6 +584,17 @@ mode "Emacs Capture Mode" {
         bindsym $mod+r mode "default"
 }
 bindsym $mod+c mode "Emacs Capture Mode"
+
+
+mode "Picom Transparency Mode" {
+        bindsym j exec picom-trans -c +5
+        bindsym k exec picom-trans -c -5
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+Ctrl+t mode "Picom Transparency Mode"
 
 # github.com/karlicoss/grasp
 # browser based emacs capture

@@ -1,0 +1,23 @@
+curl -s https://syncthing.net/release-key.txt | sudo apt-key add -
+echo "deb https://apt.syncthing.net/ syncthing stable" | sudo tee /etc/apt/sources.list.d/syncthing.list
+sudo apt-get install apt-transport-https
+sudo apt-get update
+sudo apt-get install syncthing -y
+sudo systemctl enable syncthing@username.service
+sudo systemctl start syncthing@username.service
+
+# Check status
+systemctl status syncthing@username.service
+
+
+The syncthing systemd service creates configuration files under
+/home/username/.config/syncthing/ and a folder /home/username/Sync as the
+default sync folder. The main config file is
+/home/username/.config/syncthing/config.xml.
+
+[[https://www.linuxbabe.com/ubuntu/install-syncthing-ubuntu-desktop-server][How to Install Syncthing on Ubuntu Desktop/Server]]
+
+By default, Syncthing service listens on 127.0.0.1:8384. Now in your
+Web browser’s address bar, type 127.0.0.1:8384 to access the Syncthing
+Web interface. You can add other Syncthing devices and share folders
+with them.

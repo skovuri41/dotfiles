@@ -28,6 +28,8 @@ fi
 
 if [ ! -d ~/.config ]; then
 	mkdir ~/.config
+	mkdir ~/.config/rofi/scripts
+	mkdir ~/.config/rofi/themes
 fi
 
 if [ -f ~/.bashrc ]; then

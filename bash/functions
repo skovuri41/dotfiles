@@ -288,3 +288,7 @@ function xtitle {
          *)     echo "\e]0;$*\a";;
     esac
 }
+
+gch() {
+ git checkout “$(git branch --all | fzf| tr -d ‘[:space:]’)”
+}

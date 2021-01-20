@@ -104,6 +104,8 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
+
+
 # HSTR configuration - add this to ~/.bashrc
 alias hh=hstr                    # hh to be alias for hstr
 export HSTR_CONFIG=hicolor       # get more colors
@@ -113,9 +115,9 @@ export HISTFILESIZE=10000        # increase history file size (default is 500)
 export HISTSIZE=${HISTFILESIZE}  # increase history size (default is 500)
 # ensure synchronization between bash memory and history file
 export PROMPT_COMMAND="history -a; history -n; ${PROMPT_COMMAND}"
-# if this is interactive shell, then bind hstr to Ctrl-r (for Vi mode check doc)
-if [[ $- =~ .*i.* ]]; then bind '"\C-r": "\C-a hstr -- \C-j"'; fi
-# if this is interactive shell, then bind 'kill last command' to Ctrl-x k
+#if this is interactive shell, then bind hstr to Ctrl-r (for Vi mode check doc)
+#if [[ $- =~ .*i.* ]]; then bind '"\C-r": "\C-a hstr -- \C-j"'; fi
+#if this is interactive shell, then bind 'kill last command' to Ctrl-x k
 if [[ $- =~ .*i.* ]]; then bind '"\C-xk": "\C-a hstr -k \C-j"'; fi
 
 fasd_cache="$HOME/.fasd-init-bash"
@@ -124,3 +126,21 @@ if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
 fi
 source "$fasd_cache"
 unset fasd_cache
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+# Setting ag as default for fzf
+#export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+
+
+# Setting rg as the default source for fzf
+#export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
+#export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*" 2> /dev/null'
+#export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --no-ignore-vcs -g "!{node_modules,.git}" 2> /dev/null'
+export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --no-require-git  2> /dev/null'
+
+
+# To apply the command to CTRL-T as well
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+
+complete -o bashdefault -o default -F _fzf_path_completion et tree

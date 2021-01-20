@@ -66,6 +66,7 @@ install x11-utils
 install xsel
 install feh
 install openssh-server
+apt install gnome-scr
 
 install net-tools
 install hunspell
@@ -76,12 +77,17 @@ install unzip
 install rlwrap
 install xclip
 install silversearcher-ag
-install ripgrep
+#install ripgrep
 install mpc
-install mpc
+install mpd
 install ncmpcpp
+install lnav
+install scrot
+install jq
+install gnome-tweak-tool
 
 install vlc
+sudo apt-get install davfs2 -y
 
 echo "(+) Creating Desktop Entry $HOME_PATH/.local/share/applications/mpd.desktop"
 

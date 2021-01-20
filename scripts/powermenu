@@ -13,7 +13,7 @@ function confirm()
     echo "$selection"
 }
 
-choices="Suspend\nLog out\nReboot\nPoweroff"
+choices="Suspend\nLog out\nReboot\nPoweroff\nLock Screen"
 selection=$(echo -e "$choices" | rofi   -dmenu \
                                         -i \
                                         -hide-scrollbar true \
@@ -39,5 +39,9 @@ elif [[ "$selection" == "Reboot" ]] ; then
 elif [[ "$selection" == "Poweroff" ]] ; then
     if [[ "$(confirm)" == "Yes" ]] ; then
         poweroff
+    fi
+elif [[ "$selection" == "Lock Screen" ]] ; then
+    if [[ "$(confirm)" == "Yes" ]] ; then
+        gnome-screensaver-command -l
     fi
 fi
