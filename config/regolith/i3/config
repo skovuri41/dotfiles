@@ -154,6 +154,9 @@ bindsym $mod+$alt+Left workspace prev
 ## Navigate // Scratchpad // <><Ctrl> a ##
 bindsym $mod+Ctrl+a scratchpad show
 
+# Make the currently focused window a scratchpad
+#bindsym $mod+Shift+minus move scratchpad
+
 ###############################################################################
 # Window and Workspace Configuration
 ###############################################################################
@@ -294,7 +297,7 @@ set_from_resource $i3-wm.program.settings i3-wm.program.settings gnome-control-c
 
 ## Modify // Display Settings // <> d ##
 set_from_resource $i3-wm.program.display i3-wm.program.display gnome-control-center display
-bindsym $mod+d exec $i3-wm.program.display
+#bindsym $mod+d exec $i3-wm.program.display
 
 ## Modify // Wifi Settings // <> w ##
 set_from_resource $i3-wm.program.wifi i3-wm.program.wifi gnome-control-center wifi
@@ -302,11 +305,13 @@ bindsym $mod+w exec $i3-wm.program.wifi
 
 ## Modify // Bluetooth Settings // <> b ##
 set_from_resource $i3-wm.program.bluetooth i3-wm.program.bluetooth gnome-control-center bluetooth
-bindsym $mod+b exec $i3-wm.program.bluetooth
+#bindsym $mod+b exec $i3-wm.program.bluetooth
 
 ## Launch // File Browser // <><Shift> n ##
 set_from_resource $i3-wm.program.files i3-wm.program.files /usr/bin/nautilus --new-window
-bindsym $mod+Shift+n exec $i3-wm.program.files
+#bindsym $mod+Shift+n exec $i3-wm.program.files
+bindsym $mod+Shift+n exec gnome-terminal -- ranger
+
 
 ## Launch // Notification Viewer // <> n ##
 set_from_resource $i3-wm.program.notification_ui i3-wm.program.notification_ui /usr/bin/rofication-gui
@@ -370,6 +375,7 @@ mode "Resize Mode" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
         bindsym $mod+r mode "default"
+
 }
 bindsym $mod+r mode "Resize Mode"
 
@@ -518,6 +524,7 @@ exec --no-startup-id $i3-wm.program.ftui
 set_from_resource $i3-wm.program.unclutter i3-wm.program.unclutter /usr/bin/regolith-ftue /usr/bin/unclutter -b
 exec --no-startup-id $i3-wm.program.unclutter
 
+
 # User programs from Xresources
 # To use, define an Xresource key i3-wm.program.[1-3] with the value of the program to launch.
 # See https://regolith-linux.org/docs/howto/override-xres/ for details.
@@ -531,15 +538,13 @@ exec --no-startup-id $i3-wm.program.3
 #greenclip binding
 bindsym $mod+Shift+v exec rofi -modi "clipboard:greenclip print" -show clipboard
 
-#emacs binding
-bindsym $mod+e exec emacsclient -create-frame --alternate-editor="emacs"
-
 # Greenclip
 exec --no-startup-id greenclip daemon>/dev/null
 
 #mpd
 exec_always --no-startup-id pulseaudio –-start
-exec_always --no-startup-id [ ! -s ~/.local/share/mpd/mpd.pid ] && mpd ~/.config/mpd/mpd.conf
+#exec_always --no-startup-id [ ! -s ~/.local/share/mpd/mpd.pid ] && mpd ~/.config/mpd/mpd.conf
+#systemctl --user enable mpd
 bindsym XF86AudioPrev exec "mpc prev"
 bindsym XF86AudioNext exec "mpc next"
 bindsym XF86AudioPlay exec "mpc toggle"
@@ -551,6 +556,7 @@ for_window [title="NCMPCPP"] floating enable
 for_window [title="NCMPCPP"] resize set 1000 720
 #for_window [title="NCMPCPP"] move position center
 for_window [title="NCMPCPP"] move scratchpad
+for_window [title="NCMPCPP"] move position 562 214
 for_window [title="NCMPCPP"] border pixel 1
 bindsym $mod+m exec --no-startup-id "~/bin/launch_ncmpcpp"
 
@@ -569,19 +575,22 @@ exec_always --no-startup-id keepassxc
 
 # Enable floating for emacs capture
 for_window [instance="emacs-capture"] floating enable
-#bindsym $mod+c exec ~/bin/emacs-capture --eval '(org-capture)'
+for_window [title="emacs-capture"] floating enable
+for_window [title="Emacs Anywhere"] floating enable
+
+#emacs binding
+#bindsym $mod+e exec emacsclient -create-frame --alternate-editor="emacs"
+bindsym $mod+e exec ~/.emacs_anywhere/bin/run 
 
 mode "Emacs Capture Mode" {
         # These bindings trigger as soon as you enter the Emacs Capture mode
-
-        ## Resize // Resize Window // k j h l ##
         bindsym c exec ~/bin/emacs-capture --eval '(org-capture)'; mode "default"
         bindsym a exec ~/bin/emacs-capture --eval '(org-agenda)';mode "default"
+        bindsym e exec ~/.emacs_anywhere/bin/run ;mode "default"
 
-        ## Resize // Exit Resize Mode // Escape or Enter ## 
         bindsym Return mode "default"
         bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
+        bindsym $mod+c mode "default"
 }
 bindsym $mod+c mode "Emacs Capture Mode"
 
@@ -598,12 +607,14 @@ bindsym $mod+Ctrl+t mode "Picom Transparency Mode"
 
 # github.com/karlicoss/grasp
 # browser based emacs capture
-exec_always --no-startup-id ~/bin/browser-capture
+#exec_always --no-startup-id ~/bin/browser-capture
 
 ### System Control ###
 
 # Launch rofi powermenu
 bindsym Ctrl+$alt+Delete exec "~/bin/powermenu"
+#bindsym $mod+x exec "~/bin/powermenu"
+
 
 # xprop helps here
 for_window [class="Gnome-calculator"] floating enable
@@ -612,8 +623,76 @@ for_window [title="Bashtop"] floating enable
 for_window [title="Bashtop"] border pixel 1
 
 # citrix remote office
+#for_window [title="Citrix Workspace"] move container to workspace 8
+#assign [title="Citrix Workspace"] $ws8
+for_window [title="Citrix Workspace"] floating enable
+
 for_window [class="Wfica"] floating enable
+for_window [class="Wfica"] move position 18 6
+for_window [class="Wfica"] resize set 1894 1046
+assign [class="Wfica"] $ws8
+
 
 # Open bashtop
 bindsym $mod+Ctrl+b exec xfce4-terminal --hide-menubar -T \"Bashtop\" -e \"bashtop\"
 
+assign [class="Firefox"] $ws7
+exec --no-startup-id firefox
+
+#assign [class="Signal"] $ws6
+for_window [title="Signal"] floating enable
+for_window [class="Signal"] move position 562 214
+for_window [title="Signal"] resize set 1000 720
+for_window [title="Signal"] move scratchpad
+for_window [title="Signal"] border pixel 1
+exec --no-startup-id signal-desktop
+
+assign [class="Opera"] $ws1
+exec --no-startup-id opera
+
+#assign [class="Emacs"] $ws3
+exec --no-startup-id emacs
+
+workspace_auto_back_and_forth yes
+bindsym $mod+d workspace back_and_forth
+
+# sticky window toggle
+bindsym $mod+Shift+s sticky toggle
+
+mode "relocate" {
+    set $move_amount 4
+    set $move_more_amount 8
+    # Turn VLC into a floating and sticky window (fits 1080p videos)
+    bindsym v                   [class="vlc"] floating toggle, move container to workspace $ws7, sticky toggle, resize set 730 308, move position 1190 742
+    # Move the focused window to a specific location on the screen using the numpad keys
+    bindsym Mod2+KP_1           exec --no-startup-id window_relocate.sh "bottom"    "left"
+    bindsym Mod2+KP_2           exec --no-startup-id window_relocate.sh "center"    "bottom"
+    bindsym Mod2+KP_3           exec --no-startup-id window_relocate.sh "bottom"    "right"
+    bindsym Mod2+KP_4           exec --no-startup-id window_relocate.sh "center"    "left"
+    bindsym Mod2+KP_5           exec --no-startup-id window_relocate.sh "center"
+    bindsym Mod2+KP_6           exec --no-startup-id window_relocate.sh "center"    "right"
+    bindsym Mod2+KP_7           exec --no-startup-id window_relocate.sh "top"       "left"
+    bindsym Mod2+KP_8           exec --no-startup-id window_relocate.sh "center"    "top"
+    bindsym Mod2+KP_9           exec --no-startup-id window_relocate.sh "top"       "right"
+    # Exit keys
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+Ctrl+l mode "relocate"     
+exec_always --no-startup-id numlockx on
+for_window [class="mpv"] floating enable, sticky enable, resize set 416 230, exec --no-startup-id window_relocate.sh "bottom" "right"
+bindsym $mod+y exec mpv "$(xclip -selection c -out)"
+
+# Screenshot Menu
+set $scrotmode "[S]crot . Sele[C]tion . [W]indow"
+bindsym $mod+p  mode $scrotmode
+mode $scrotmode {
+    bindsym s         exec --no-startup-id "scrot ~/Pictures/Screenshots/scrot-$(date +%Y-%m-%d_%H-%M-%S).png", mode "default"
+    bindsym --release c exec --no-startup-id  "scrot -s -e 'xclip -selection clipboard -t image/png < $f && rm $f'", mode "default"
+    bindsym w         exec --no-startup-id "scrot -u ~/Pictures/Screenshots/cropped-$(date +%Y-%m-%d_%H-%M-%S).png", mode "default"
+    bindsym Return    mode "default"
+    bindsym Escape    mode "default"
+}
+
+bindsym $mod+x exec "rofi -show window"

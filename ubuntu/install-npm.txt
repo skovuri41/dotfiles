@@ -1,0 +1,7 @@
+[[https://linuxize.com/post/how-to-install-node-js-on-ubuntu-20-04/][How to Install Node.js and npm on Ubuntu 20.04 | Linuxize]]
+
+#+begin_src sh
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+  nvm install node
+  npm install --global yarn
+#+end_src

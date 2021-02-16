@@ -22,10 +22,7 @@ export MANPAGER='less -X';
 
 # Always enable colored `grep` output.
 #export GREP_OPTIONS='--color=auto';
-export PATH="$HOME/.tmuxifier/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
-export TMUXIFIER_LAYOUT_PATH="$HOME/.layouts"
-#. "$HOME/z/z.sh"
 
 prepend_path() {
   export PATH="$1:${PATH}"
@@ -41,6 +38,11 @@ export ALTERNATE_EDITOR=vi
 
 # setup ~/bin
 prepend_path "${HOME}/bin"
+
+# add .local/bin to path
+#~/.local/bin
+prepend_path "${HOME}/.local/bin"
+
 
 fasd_cache="$HOME/.fasd-init-bash"
 if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
@@ -76,3 +78,61 @@ fi
 if [ -d "$HOME/emacs-26.3/bin" ];then
   export PATH="$HOME/emacs-26.3/bin:$PATH"
 fi
+
+
+#export NNN_OPTS='n'
+export NNN_FIFO='/tmp/nnn.fifo'
+export NNN_SEL='/tmp/.sel'
+#export NNN_COLORS='6537'
+#export NNN_COLORS='#b7d49f2e;5555'
+#export NNN_FCOLORS='c1e2b72e006033f7c6d6abc4'
+export NNN_FCOLORS='c1e2272e006033f7c6d6abc4' 
+export NNN_TRASH=1  # trash (needs trash-cli) instead of delete
+export NNN_ARCHIVE="\\.(7z|a|ace|alz|arc|arj|bz|bz2|cab|cpio|deb|gz|jar|lha|lz|lzh|lzma|lzo|rar|rpm|rz|t7z|tar|tbz|tbz2|tgz|tlz|txz|tZ|tzo|war|xpi|xz|Z|zip)$"
+export NNN_BMS=''\
+'b:~/bin;'\
+'c:~/.config;'\
+'d:~/Downloads;'\
+'h:~/;'\
+'m:~/Music;'\
+'p:~/Projects;'\
+'v:~/Videos;'\
+'n:/nas;'\
+'T:/tmp;'
+export NNN_PLUG=''\
+'c:fzcd;'\
+'h:fzhist;'\
+'o:fzopen;'\
+'z:fzz;'\
+'u:getplugs;'\
+'O:launch;'\
+'s:suedit;'\
+'t:tree;'
+#Enable cd on exit
+n ()
+{
+    # Block nesting of nnn in subshells
+    if [ -n $NNNLVL ] && [ "${NNNLVL:-0}" -ge 1 ]; then
+        echo "nnn is already running"
+        return
+    fi
+
+    # The default behaviour is to cd on quit (nnn checks if NNN_TMPFILE is set)
+    # To cd on quit only on ^G, remove the "export" as in:
+    #     NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
+    # NOTE: NNN_TMPFILE is fixed, should not be modified
+    export NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
+
+    # Unmask ^Q (, ^V etc.) (if required, see `stty -a`) to Quit nnn
+    # stty start undef
+    # stty stop undef
+    # stty lwrap undef
+    # stty lnext undef
+
+    nnn "$@"
+
+    if [ -f "$NNN_TMPFILE" ]; then
+            . "$NNN_TMPFILE"
+            rm -f "$NNN_TMPFILE" > /dev/null
+    fi
+}

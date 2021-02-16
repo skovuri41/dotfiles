@@ -42,6 +42,7 @@ elif [[ "$selection" == "Poweroff" ]] ; then
     fi
 elif [[ "$selection" == "Lock Screen" ]] ; then
     if [[ "$(confirm)" == "Yes" ]] ; then
-        gnome-screensaver-command -l
+        #gnome-screensaver-command -l
+        xscreensaver-command -activate
     fi
 fi

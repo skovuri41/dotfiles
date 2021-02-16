@@ -73,4 +73,14 @@ Icon=/usr/local/stow/emacs/share/icons/hicolor/scalable/apps/emacs.svg
 Categories=Development;
 EOF
 
+cat > $HOME_PATH/.local/share/applications/org-protocol.desktop << EOF
+[Desktop Entry]
+Name=org-protocol
+Exec=emacsclient %u
+Type=Application
+Terminal=false
+Categories=System;
+MimeType=x-scheme-handler/org-protocol;
+EOF
+
 echo "(+) Complete! Look for Emacs in your application menu."

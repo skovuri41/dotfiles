@@ -26,7 +26,6 @@ function install {
   fi
 }
 
-# Basics
 install curl
 install cifs-utils
 install build-essential
@@ -51,7 +50,6 @@ install sqllite3
 sudo add-apt-repository ppa:ultradvorka/ppa -y
 install hstr
 
-# Fun stuff
 install figlet
 install lolcat
 
@@ -85,6 +83,10 @@ install lnav
 install scrot
 install jq
 install gnome-tweak-tool
+install ffmpeg
+install youtube-dl
+install numlockx
+install ranger
 
 install vlc
 sudo apt-get install davfs2 -y
@@ -102,8 +104,8 @@ StartupNotify=false
 Terminal=false
 Hidden=false
 EOF
-
 sudo desktop-file-install $HOME_PATH/.local/share/applications/mpd.desktop
+
 
 echo "Installing Java"
 install openjdk-11-jdk
@@ -119,5 +121,4 @@ for f in programs/*.sh; do bash "$f" -H; done
 sudo apt upgrade -y
 sudo apt autoremove -y
 
-# Fun hello
 figlet "Setup Completed!" | lolcat

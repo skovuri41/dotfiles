@@ -134,6 +134,7 @@ fi
 
 alias sudo='sudo -E env "PATH=$PATH"'
 alias open='xdg-open &>/dev/null'
+alias xdg-open="xdg-open 2>/dev/null"
 
 alias ping='ping -c 5'
 alias www='python -m SimpleHTTPServer 8000'
@@ -176,4 +177,4 @@ alias et='emacsclient -t $(fzfi)'
 
 alias cdtemp='cd $(mktemp -d)'
 
-
+alias ls='n -dRFHoex'
