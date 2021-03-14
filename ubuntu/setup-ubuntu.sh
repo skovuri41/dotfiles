@@ -86,7 +86,10 @@ install gnome-tweak-tool
 install ffmpeg
 install youtube-dl
 install numlockx
-install ranger
+#install ranger
+install imagemagick
+install graphviz
+install direnv
 
 install vlc
 sudo apt-get install davfs2 -y

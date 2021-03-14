@@ -30,3 +30,10 @@ git clone --depth 1 https://github.com/jarun/nnn
 cd nnn
 sudo make O_NERD=1
 sudo cp nnn /usr/bin
+
+
+git clone https://github.com/hackerb9/lsix.git
+cd lsix
+
+# just
+curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s -- --to ~/.local/bin

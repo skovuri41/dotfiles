@@ -176,5 +176,6 @@ alias fzfi='rg --files --hidden --follow --no-ignore-vcs -g "!{node_modules,.git
 alias et='emacsclient -t $(fzfi)'
 
 alias cdtemp='cd $(mktemp -d)'
+alias rmtrash='trash-put'
 
-alias ls='n -dRFHoex'
+#alias ls='n -dRFHoex'

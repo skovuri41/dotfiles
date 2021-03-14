@@ -1,4 +1,4 @@
-# Increase Bash history size. Allow 32³ entries; the default is 500.
+# Increase Bash history size. Allow 32³ entries; the default is 501.
 export HISTSIZE='32768';
 export HISTFILESIZE="${HISTSIZE}";
 # Omit duplicates and commands that begin with a space from history.
@@ -80,7 +80,7 @@ if [ -d "$HOME/emacs-26.3/bin" ];then
 fi
 
 
-#export NNN_OPTS='n'
+export NNN_OPTS='dRFHoex'
 export NNN_FIFO='/tmp/nnn.fifo'
 export NNN_SEL='/tmp/.sel'
 #export NNN_COLORS='6537'
