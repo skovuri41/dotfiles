@@ -1,8 +1,0 @@
-# Date Time
-[Cal]
-align=center
-full_text=   
-#command=zenity --calendar >/dev/null
-command=gnome-calendar >/dev/null
-
-
