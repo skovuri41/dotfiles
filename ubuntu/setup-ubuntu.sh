@@ -75,7 +75,8 @@ install unzip
 install rlwrap
 install xclip
 install silversearcher-ag
-#install ripgrep
+install ripgrep
+install fd-find
 install mpc
 install mpd
 install ncmpcpp
@@ -91,8 +92,18 @@ install imagemagick
 install graphviz
 install direnv
 
+install exiv2
+install pavucontrol
+
 install vlc
 sudo apt-get install davfs2 -y
+
+# mouse mover
+sudo snap install keep-presence
+
+
+#TODO install starship
+#https://github.com/starship/starship
 
 echo "(+) Creating Desktop Entry $HOME_PATH/.local/share/applications/mpd.desktop"
 

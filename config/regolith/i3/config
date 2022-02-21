@@ -309,8 +309,8 @@ set_from_resource $i3-wm.program.bluetooth i3-wm.program.bluetooth gnome-control
 
 ## Launch // File Browser // <><Shift> n ##
 set_from_resource $i3-wm.program.files i3-wm.program.files /usr/bin/nautilus --new-window
-#bindsym $mod+Shift+n exec $i3-wm.program.files
-bindsym $mod+Shift+n exec gnome-terminal -- ranger
+bindsym $mod+Shift+n exec $i3-wm.program.files
+#bindsym $mod+Shift+n exec gnome-terminal -- ranger
 
 
 ## Launch // Notification Viewer // <> n ##

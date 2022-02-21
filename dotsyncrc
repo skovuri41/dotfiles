@@ -10,7 +10,7 @@
 dotsyncrc
 curl/curlrc
 git/gitconfig
-git/gitignore
+#git/gitignore
 git/gitattributes
 input/inputrc
 tmux/tmux.conf
@@ -25,16 +25,18 @@ bash/bash_aliases
 lein/lein:bin/lein
 lein/profiles.clj:.lein/profiles.clj
 emacs.d
-z:z
-tmuxifier
 fasd:fasd
 fasd/fasd:bin/fasd
 ag/agignore
-hammerspoon
-qfc
 liquidprompt
 prompt/liquidpromptrc:.config/liquidpromptrc
 fonts
+z
+scripts/powermenu:bin/powermenu
+scripts/rofi-mount:bin/rofi-mount
+config/regolith/Xresources:.Xresources
+scripts/launch_ncmpcpp:/bin/launch_ncmpcpp
+config/systemd/user/emacs.service:.config/systemd/user/emacs.service
 [endfiles]
 
 ## hostname                     type=masterhost, ANY or NONE    files=dotfile:tolink,another:tolink
@@ -48,5 +50,5 @@ fonts
 #host7.example.net               rsync=host2.example.com                                #rsync mirror, push from host2
 #host8.example.net               rsync=host2.example.com                                #rsync mirror, push from host2
 #host9.example.net               rsync=host2.example.com                                #rsync mirror, push from host2
-dhruva git=ANY
+shakti git=ANY
 [endhosts]

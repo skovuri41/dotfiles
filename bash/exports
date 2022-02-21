@@ -79,6 +79,10 @@ if [ -d "$HOME/emacs-26.3/bin" ];then
   export PATH="$HOME/emacs-26.3/bin:$PATH"
 fi
 
+if [ -d "$HOME/doom-emacs/bin" ];then
+  export PATH="$HOME/doom-emacs/bin:$PATH"
+fi
+
 
 export NNN_OPTS='dRFHoex'
 export NNN_FIFO='/tmp/nnn.fifo'
