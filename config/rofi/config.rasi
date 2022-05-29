@@ -6,5 +6,7 @@ configuration {
   disable-history:    false;
   modi:               "drun";
   display-drun:       "apps";
+  matching: "fuzzy";
+  drun-match-fields: "name";
   columns: 2;
 }

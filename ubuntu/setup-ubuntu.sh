@@ -94,12 +94,10 @@ install direnv
 
 install exiv2
 install pavucontrol
-
+install p7zip-full
+install p7zip-rar
 install vlc
 sudo apt-get install davfs2 -y
-
-# mouse mover
-sudo snap install keep-presence
 
 
 #TODO install starship

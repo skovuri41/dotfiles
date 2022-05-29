@@ -2,12 +2,12 @@
 
 if [[ ! $INSTALL_SCRIPT ]]; then
     echo "(!) Error: You must use the installer script."
-    exit
+    # exit
 fi
 
 currentver="$(emacs --version)"
-requiredver="27.1"
- if [ "$(printf '%s\n' "$requiredver" "$currentver" | sort -V | head -n1)" = "$requiredver" ]; then
+requiredver="27.2"
+ if [ "$(printf '%s\n'  "$currentver" | sort -V | head -n1)" = "$requiredver" ]; then
         echo "Emacs $requiredver Already Installed - Exiting"
 	exit 1
  else
@@ -44,9 +44,9 @@ done
 echo "proj temp path: "
 echo $PROJECT_TEMP_PATH
 cd $PROJECT_TEMP_PATH
-tar -xf $PROJECT_TEMP_PATH/emacs-27.1.tar.xz
-rm emacs-27.1.tar.xz
-cd emacs-27.1
+tar -xf $PROJECT_TEMP_PATH/emacs-27.2.tar.gz
+#rm emacs-27.1.tar.xz
+cd emacs-27.2
 
 sudo -s <<'EOF'
   ./configure --disable-silent-rules \

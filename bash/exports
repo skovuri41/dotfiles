@@ -71,18 +71,13 @@ export PROMPT_COMMAND="history -a; history -n; ${PROMPT_COMMAND}"   # mem/file s
 
 [[ $- = *i* ]] && source "$HOME/.liquidprompt/liquidprompt"
         
-if [ -d "$HOME/.node_modules_global" ];then
-  export PATH="$HOME/.node_modules_global/bin:$PATH"
-fi
-
-if [ -d "$HOME/emacs-26.3/bin" ];then
-  export PATH="$HOME/emacs-26.3/bin:$PATH"
+if [ -d "$HOME/node_modules" ];then
+  export PATH="$HOME/node_modules/.bin:$PATH"
 fi
 
 if [ -d "$HOME/doom-emacs/bin" ];then
   export PATH="$HOME/doom-emacs/bin:$PATH"
 fi
-
 
 export NNN_OPTS='dRFHoex'
 export NNN_FIFO='/tmp/nnn.fifo'

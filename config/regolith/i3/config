@@ -579,8 +579,8 @@ for_window [title="emacs-capture"] floating enable
 for_window [title="Emacs Anywhere"] floating enable
 
 #emacs binding
-#bindsym $mod+e exec emacsclient -create-frame --alternate-editor="emacs"
-bindsym $mod+e exec ~/.emacs_anywhere/bin/run 
+bindsym $mod+e exec ~/.emacs_anywhere/bin/run
+bindsym $mod+Shift+e exec /usr/local/bin/emacsclient -c -a emacs
 
 mode "Emacs Capture Mode" {
         # These bindings trigger as soon as you enter the Emacs Capture mode
@@ -605,16 +605,10 @@ mode "Picom Transparency Mode" {
 
 bindsym $mod+Ctrl+t mode "Picom Transparency Mode"
 
-# github.com/karlicoss/grasp
-# browser based emacs capture
-#exec_always --no-startup-id ~/bin/browser-capture
-
 ### System Control ###
 
 # Launch rofi powermenu
 bindsym Ctrl+$alt+Delete exec "~/bin/powermenu"
-#bindsym $mod+x exec "~/bin/powermenu"
-
 
 # xprop helps here
 for_window [class="Gnome-calculator"] floating enable
@@ -632,11 +626,10 @@ for_window [class="Wfica"] move position 18 6
 for_window [class="Wfica"] resize set 1894 1046
 assign [class="Wfica"] $ws8
 
-
 # Open bashtop
 bindsym $mod+Ctrl+b exec xfce4-terminal --hide-menubar -T \"Bashtop\" -e \"bashtop\"
 
-assign [class="Firefox"] $ws7
+assign [class="firefox"] $ws7
 exec --no-startup-id firefox
 
 #assign [class="Signal"] $ws6
@@ -651,7 +644,7 @@ assign [class="Opera"] $ws1
 exec --no-startup-id opera
 
 #assign [class="Emacs"] $ws3
-exec --no-startup-id emacs
+#exec --no-startup-id emacs
 
 workspace_auto_back_and_forth yes
 bindsym $mod+d workspace back_and_forth
