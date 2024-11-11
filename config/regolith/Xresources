@@ -1,4 +1,4 @@
-gnome.terminal.font:	JetBrains Mono 12
-i3-wm.gaps.inner.size: 10
-Emacs.font: JetBrains Mono-12
+gnome.terminal.font:	JetBrains Mono 13
+i3-wm.gaps.inner.size: 12
 gnome.wallpaper: ~/.dotfiles/wallpaper/beach-sunrise-3840x2160.jpg
+Xft.dpi: 120

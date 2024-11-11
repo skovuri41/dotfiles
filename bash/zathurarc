@@ -57,3 +57,4 @@ unmap f
 map f toggle_fullscreen
 map [fullscreen] f toggle_fullscreen
 map t recolor
+set selection-clipboard clipboard

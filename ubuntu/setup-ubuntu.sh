@@ -98,7 +98,7 @@ install p7zip-full
 install p7zip-rar
 install vlc
 sudo apt-get install davfs2 -y
-
+install zathura
 
 #TODO install starship
 #https://github.com/starship/starship

@@ -24,7 +24,7 @@ bash/logout
 bash/bash_aliases
 lein/lein:bin/lein
 lein/profiles.clj:.lein/profiles.clj
-emacs.d
+doom.d:.config/doom
 fasd:fasd
 fasd/fasd:bin/fasd
 ag/agignore
@@ -37,6 +37,7 @@ scripts/rofi-mount:bin/rofi-mount
 config/regolith/Xresources:.Xresources
 scripts/launch_ncmpcpp:/bin/launch_ncmpcpp
 config/systemd/user/emacs.service:.config/systemd/user/emacs.service
+direnv/direnvrc:.config/direnv/direnvrc
 [endfiles]
 
 ## hostname                     type=masterhost, ANY or NONE    files=dotfile:tolink,another:tolink

@@ -52,7 +52,7 @@ sudo -s <<'EOF'
   ./configure --disable-silent-rules \
 --with-modules --with-file-notification=inotify --with-mailutils \
 --with-x=yes --with-x-toolkit=gtk3 --with-xwidgets --with-lcms2 \
---with-imagemagick --with-json
+--with-imagemagick --with-json --with-native-compilation
   make
   make install prefix=/usr/local/stow/emacs
   cd /usr/local/stow
