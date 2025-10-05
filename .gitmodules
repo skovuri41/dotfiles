@@ -3,7 +3,7 @@
 	url = https://github.com/dotphiles/dotsync.git
 [submodule "emacs.d"]
 	path = emacs.d
-        url = git@github.com:surya46584/emacs.d.git
+  url = git@github.com:surya46584/emacs.d.git
 [submodule "z"]
 	path = z
 	url = https://github.com/rupa/z.git
@@ -18,4 +18,4 @@
 	url = https://github.com/nojhan/liquidprompt.git
 [submodule "doom.d"]
 	path = doom.d
-	url = git@github.com:shyamkovuri3/doom.d
+	url = git@github.com:skovuri41/doom.d.git
